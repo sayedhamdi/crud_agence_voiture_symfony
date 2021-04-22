@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    <div class="mb-3">
+        <label for="nom" class="form-label">{{ form_label(form.nom) }}</label>
+        {{form_widget(form.nom, {'attr': {'class': 'form-control'}}) }} 
+    </div>
+
+    <div class="mb-3">
+        <label for="telegence" class="form-label">{{ form_label(form.telegence) }}</label>
+        {{form_widget(form.telegence, {'attr': {'class': 'form-control'}}) }} 
+    </div>
+
+    <div class="mb-3">
+        <label class="form-check-label" for="adresse_ville">{{ form_label(form.adresse_ville) }}</label>
+        {{ form_widget(form.adresse_ville, {'attr': {'class': 'form-control'}}) }}     
+    </div>
+
+
+    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

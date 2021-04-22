@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence{% endblock %}
+
+{% block body %}
+    <h1>Agence</h1>
+
+    <table class="table table-dark table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agence.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ agence.nom }}</td>
+            </tr>
+            <tr>
+                <th>Telegence</th>
+                <td>{{ agence.telegence }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_ville</th>
+                <td>{{ agence.adresseVille }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex mt-2">
+    <a href="{{ path('agence_index') }}" class="btn btn-primary">back to list</a>
+
+        <a href="{{ path('agence_edit', {'id': agence.id}) }}" class="btn btn-info mx-5">edit</a>
+
+        {{ include('agence/_delete_form.html.twig') }}
+    </div>
+  
+{% endblock %}

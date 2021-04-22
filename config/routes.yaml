@@ -1,3 +1,19 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+admin_index:
+    path: /admin
+    controller: App\Controller\AdminController::index
+
+agence_index:
+    path: /agence
+    controller: App\Controller\AgenceController::index
+
+voiture_index:
+    path: /voiture
+    controller: App\Controller\VoitureController::index
+    
+voiture_ajouter:
+    path: /voiture/ajouter
+    controller : App\Controller\VoitureController::ajouter
+voiture_supprimer:
+    path: /voiture/{id}
+    controller : App\Controller\VoitureController::supprimer
+    methods:   DELETE

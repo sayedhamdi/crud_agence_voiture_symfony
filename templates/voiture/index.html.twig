@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voiture index{% endblock %}
+
+{% block body %}
+    <h2 class="my-5 text-dark bg-light" >Listes des Voitures</h2>
+    <table class="table table-light table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Couleur</th>
+                <th scope="col">Description</th>
+                <th scope="col">Nb_place</th>
+                <th scope="col">Nom_agence</th>
+                <th scope="col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td>#{{ voiture.id }}</td>
+                <td>{{ voiture.Marque }}</td>
+                <td>{{ voiture.couleur }}</td>
+                <td>{{ voiture.description }}</td>
+                <td>{{ voiture.nbPlace }}</td>
+                <td>{{ voiture.nomAgence }}</td>
+                <td class="d-flex">
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-dark">edit</a>
+                    {{ include('voiture/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('voiture_new') }}" class="btn btn-success">Ajouter une Voiture</a>
+{% endblock %}
